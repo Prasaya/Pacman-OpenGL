@@ -1,0 +1,39 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Freeglut project",
+			"command": "cmake --build build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": {
+				"base": "$gcc",
+				"fileLocation": [
+					"relative",
+					"$workspaceRoot/build"
+				]
+			},
+			"group": "build",
+			"detail": "Compile a freeglut project"
+		},
+		{
+			"label": "Run freeglut project",
+			"dependsOn": [
+				"Freeglut project"
+			],
+			"dependsOrder": "sequence",
+			"windows": {
+				"command": "bin\\Pacman.exe"
+			},
+			"linux": {
+				"command": "./bin/Pacman"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
